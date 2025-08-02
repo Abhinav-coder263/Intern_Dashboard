@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intern - Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">InternConnect</div>
+            <div class="auth-buttons">
+                <button id="login-btn">Login</button>
+                <button id="signup-btn">Sign Up</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="hero">
+            <h1>Welcome to Your Intern Dashboard</h1>
+            <p>Track your progress, earn rewards, and connect with other interns through our platform.</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="total-referrals">24</div>
+                    <div class="stat-label">Referrals</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="donations-raised">$1,850</div>
+                    <div class="stat-label">Raised</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="rewards-earned">5</div>
+                    <div class="stat-label">Rewards</div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="dashboard">
+            <div>
+                <div class="card">
+                    <h2 class="card-title">Your Profile</h2>
+                    <div class="profile-info">
+                        <img src="profile.jpg" alt="Portrait of a young professional intern smiling at camera in office attire" class="avatar" id="user-avatar">
+                        <h3 id="user-name">Abhinav Kumar</h3>
+                        <p>Software Engineering Intern</p>
+                    </div>
+                    
+                    <div class="referral-code">
+                        <h3>Your Referral Code</h3>
+                        <div class="code" id="referral-code">ABHINAV2025</div>
+                        <p>Share this code with friends to earn rewards!</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2 class="card-title">Donation Progress</h2>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>Raised: $1,850</span>
+                            <span>Goal: $3,000</span>
+                        </div>
+                    </div>
+                    <p>You're 62% towards your fundraising goal! Keep up the great work!</p>
+                </div>
+            </div>
+            
+            <div>
+                <div class="card">
+                    <h2 class="card-title">Your Rewards</h2>
+                    <div class="rewards">
+                        <div class="reward-item">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bd3d5f42-edff-4f91-9afc-b8a2da14329e.png" alt="Golden trophy with star on top representing achievement award">
+                            <h3>Top Recruiter</h3>
+                            <p>Earned for 10+ referrals</p>
+                        </div>
+                        <div class="reward-item">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6600e416-2588-4ac0-ac49-aa90393228aa.png" alt="Silver medal with ribbon for second place achievement">
+                            <h3>Fundraiser</h3>
+                            <p>$1,000+ raised</p>
+                        </div>
+                        <div class="reward-item">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ec66033d-9a40-4fe9-92d8-779e51e39639.png" alt="Digital badge with checkmark for completion of training">
+                            <h3>Training Complete</h3>
+                            <p>Finished all modules</p>
+                        </div>
+                        <div class="reward-item">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ae6420c7-601b-426c-8577-e57b7e094ccf.png" alt="Shield icon symbolizing trust and verification">
+                            <h3>Verified</h3>
+                            <p>Profile completed</p>
+                        </div>
+                        <div class="reward-item locked">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8823d63e-1040-42a2-8cbf-978a269f2626.png" alt="Padlock icon indicating locked achievement not yet earned">
+                            <h3>Elite Status</h3>
+                            <p>Reach $3,000</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card leaderboard">
+                    <h2 class="card-title">Leaderboard</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Name</th>
+                                <th>Referrals</th>
+                                <th>Raised</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-data">
+                            <!-- Leaderboard data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 class="modal-title">Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary close-modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Signup Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 class="modal-title">Create Account</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" placeholder="Confirm your password">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary close-modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+     <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">InternConnect</div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2025 InternConnect. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
